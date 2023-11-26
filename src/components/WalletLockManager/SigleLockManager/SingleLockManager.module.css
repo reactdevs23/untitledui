@@ -1,0 +1,139 @@
+.lockManager {
+  border-radius: 12px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+
+  box-shadow: 0px 2px 4px 0px rgba(16, 24, 40, 0.05);
+
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200, #e4e7ec);
+  background: var(--base-white, #fff);
+  box-shadow: 0px 2px 2px 0px rgba(16, 24, 40, 0.05);
+}
+.icon {
+  width: 24px;
+}
+
+.heading {
+  color: #344054;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
+.subHeading {
+  color: rgba(71, 84, 103, 0.7);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  padding-top: 5px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 28px 0;
+  border-top: 1px solid #eaecf0;
+  border-bottom: 1px solid #eaecf0;
+}
+.label {
+  color: #344054;
+
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 142.857%;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  padding: 6px 10px;
+}
+.input {
+  color: #667085;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0px 10px;
+}
+.mailIcon,
+.questionMark {
+  color: #667085;
+  font-size: 20px;
+}
+.input {
+  width: 100%;
+}
+
+.button {
+  color: var(--White, #fff);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 142.857%;
+  text-transform: capitalize;
+  border-radius: 8px;
+  border: 1px solid #7f56d9;
+  background: #7f56d9;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  width: 100%;
+  padding: 10px 12px;
+  transition: 0.3s;
+}
+.button:hover {
+  opacity: 0.7;
+}
+.header,
+.inputWrapper,
+.buttonContainer {
+  padding: 22px;
+}
+@media only screen and (max-width: 520px) {
+  .header,
+  .inputWrapper,
+  .buttonContainer {
+    padding: 18px;
+  }
+  .input {
+    font-size: 14px;
+    padding: 0px 6px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .header,
+  .inputWrapper,
+  .buttonContainer {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,57 @@
+.datePickerRoot {
+  display: flex;
+  align-items: center;
+  width: 154.494px;
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  background: #fff;
+  padding: 9px 10px;
+}
+
+.datePickerRoot input {
+  flex-shrink: 0;
+  outline: none;
+  padding-right: 10px;
+  color: #344054;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 142.857%;
+  width: 100%;
+
+  /* Shadow/xs */
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  border: none;
+  position: relative;
+}
+.calender {
+  color: #344054;
+  font-size: 17px;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  cursor: pointer;
+  z-index: 1;
+}
+/* @media screen and (max-width: 640px) {
+  .datePickerRoot {
+    width: 100%;
+  }
+
+  .datePickerRoot input {
+    width: 100%;
+  }
+} */
+
+.datePickerRoot input:placeholder {
+  color: #c2c2c2;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

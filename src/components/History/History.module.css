@@ -1,0 +1,118 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding-top: 24px;
+  padding-top: 120px;
+}
+.history {
+  border-radius: 12px;
+  border: 1px solid rgba(208, 213, 221, 0.6);
+  background: #fff;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.header {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+  justify-content: space-between;
+}
+.more {
+  font-size: 20px;
+  color: #98a2b3;
+  cursor: pointer;
+}
+.iconAndDetails {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200, #e4e7ec);
+  background: var(--base-white, #fff);
+  box-shadow: 0px 2px 2px 0px rgba(16, 24, 40, 0.05);
+}
+.icon {
+  width: 24px;
+}
+
+.heading {
+  color: #344054;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
+.subHeading {
+  color: rgba(71, 84, 103, 0.7);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+
+  line-height: 100%;
+  padding-top: 5px;
+}
+.amount {
+  color: #344054;
+  font-family: Inter;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.6px;
+}
+.light {
+  color: rgba(52, 64, 84, 0.4);
+}
+@media only screen and (max-width: 1199px) {
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .subHeading {
+    font-size: 12px;
+  }
+  .iconContainer {
+    width: 36px;
+    height: 36px;
+  }
+  .icon {
+    width: 20px;
+  }
+  .amount {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .wrapper {
+    padding-top: 110px;
+  }
+  .history {
+    padding: 15px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .history {
+    padding: 12px;
+  }
+}
