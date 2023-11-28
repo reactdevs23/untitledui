@@ -4,17 +4,19 @@ import {
   convertTimestampToFormattedDate,
   shortenEthereumAddress,
   formatNumberWithCommas,
-} from "../utils";
+} from "../../common/utils";
+import Loader from "../../common/Loader/Loader";
 
-const DataTable = ({ data }) => {
+const DataTable = ({ data, loader }) => {
   return (
     <div className={classes.tableContainer}>
+      {loader && <Loader />}
       <table>
         <thead>
           <tr>
             <th>stakeID</th>
             <th>amount</th>
-            <th>user</th>
+            <th>id</th>
             <th>transactionHash</th>
             <th>blockNumber</th>
             <th className={classes.txIdContainer}>Time</th>
@@ -31,7 +33,7 @@ const DataTable = ({ data }) => {
                   </div>
                 </td>
                 <td>
-                  <div>{shortenEthereumAddress(el.user)} </div>
+                  <div>{shortenEthereumAddress(el.id)} </div>
                 </td>
                 <td>
                   <div>{shortenEthereumAddress(el.transactionHash)}</div>

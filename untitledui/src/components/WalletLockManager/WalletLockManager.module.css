@@ -1,0 +1,62 @@
+.wrapper {
+  border-radius: 16px;
+  background: #eaecf0;
+  padding: 22px;
+}
+.title {
+  color: #344054;
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  text-transform: capitalize;
+}
+
+.text {
+  color: #667085;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 142.857%;
+}
+.lockManagers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding-top: 24px;
+}
+@media only screen and (max-width: 1199px) {
+  .lockManagers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .lockManagers {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .wrapper {
+    padding: 15px;
+  }
+
+  .iconContainer {
+    width: 36px;
+    height: 36px;
+  }
+  .icon {
+    width: 20px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .wrapper {
+    padding: 12px;
+  }
+  .lockManagers {
+    padding-top: 15px;
+  }
+}

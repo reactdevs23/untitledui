@@ -3,11 +3,11 @@ import { IoSearchOutline } from "react-icons/io5";
 
 import DatePicker from "../common/DatePicker/DatePicker";
 import Pagination from "../common/Pagination/Pagination";
-import DataTable from "./DataTable/DataTable";
+import DataTable from "../common/DataTable/DataTable";
 
-import classes from "./UnStakesTable.module.css";
+import classes from "./OnStakesTable.module.css";
 
-const UnStakesTable = () => {
+const OnStakesTable = () => {
   const [searchState, setSearchState] = useState("");
   const [originalData, setOriginalData] = useState([]); // Store the original unfiltered data
   const [filteredData, setFilteredData] = useState([]); // Use this for filtering
@@ -18,26 +18,35 @@ const UnStakesTable = () => {
     endDate: "",
   });
   const [totalDataLength, setTotalDataLength] = useState(0);
-  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const fetchUnstakesData = async () => {
-      setLoading(true);
+    const fetchData = async () => {
       const apiUrl =
         "https://api.thegraph.com/subgraphs/name/civa/uns-universal-staking";
 
       const query = {
         query: `
-          query MyQuery {
-            unstakes {
-              amount
-              blockNumber
-              blockTimestamp
-              id
-              stakeID
-              transactionHash
-            }
+        query MyQuery {
+          onStakes {
+            amount
+            apr
+            blockNumber
+            blockTimestamp
+            id
+            lastWithdrawnTime
+            ref1
+            ref2
+            ref3
+            ref5
+            ref4
+            stakeID
+            transactionHash
+            unlockTime
+            user
+            withdrawnAmount
           }
-        `,
+        }
+      `,
         variables: {},
       };
 
@@ -55,19 +64,16 @@ const UnStakesTable = () => {
         const response = await fetch(apiUrl, requestOptions);
         const data = await response.json();
 
-        setOriginalData(data.data.unstakes);
-        setFilteredData(data.data.unstakes);
-        setTotalDataLength(data.data.unstakes.length);
+        setOriginalData(data.data.onStakes);
+        setFilteredData(data.data.onStakes);
+        setTotalDataLength(data.data.onStakes.length);
       } catch (error) {
-        console.error("Error fetching unstakes data:", error);
+        console.error("Error fetching stakes data:", error);
         // Handle errors here
-      } finally {
-        // Set loading to false when fetching is completed (either success or error)
-        setLoading(false);
       }
     };
 
-    fetchUnstakesData();
+    fetchData();
   }, []);
 
   const currentTableData = useMemo(() => {
@@ -78,7 +84,7 @@ const UnStakesTable = () => {
 
   useEffect(() => {
     const filtered = originalData.filter((el) => {
-      const userMatches = el.transactionHash
+      const userMatches = el.user
         .toLowerCase()
         .includes(searchState.toLowerCase());
 
@@ -101,7 +107,7 @@ const UnStakesTable = () => {
     <div className={[classes.mainWrapper, "mainWrapper"].join(" ")}>
       <div className={classes.tableHeader}>
         <h2 className={classes.pageTitle}>
-          Unstakes Table{" "}
+          OnStakes Table{" "}
           <span className={classes.numberOfUsers}>
             {filteredData.length} users
           </span>
@@ -134,7 +140,7 @@ const UnStakesTable = () => {
         </div>
       </div>
       <div className={classes.tableContainer}>
-        <DataTable data={currentTableData} loader={loading} />
+        <DataTable data={currentTableData} />
       </div>
 
       <Pagination
@@ -148,4 +154,4 @@ const UnStakesTable = () => {
   );
 };
 
-export default UnStakesTable;
+export default OnStakesTable;

@@ -31,7 +31,8 @@ const DataTable = ({ data }) => {
                   </div>
                 </td>
                 <td>
-                  <div>{shortenEthereumAddress(el.user)} </div>
+                  {el.user && <div>{shortenEthereumAddress(el.user)} </div>}
+                  {/* {el.id && el.id} */}
                 </td>
                 <td>
                   <div>{shortenEthereumAddress(el.transactionHash)}</div>

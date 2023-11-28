@@ -3,7 +3,7 @@ import { IoSearchOutline } from "react-icons/io5";
 
 import DatePicker from "../common/DatePicker/DatePicker";
 import Pagination from "../common/Pagination/Pagination";
-import DataTable from "../common/DataTable/DataTable";
+import DataTable from "./DataTable/DataTable";
 
 import classes from "./RewardTable.module.css";
 
@@ -18,9 +18,11 @@ const RewardTable = () => {
     endDate: "",
   });
   const [totalDataLength, setTotalDataLength] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const apiUrl =
         "https://api.thegraph.com/subgraphs/name/civa/uns-universal-staking";
 
@@ -61,6 +63,9 @@ const RewardTable = () => {
       } catch (error) {
         console.error("Error fetching data:", error);
         // Handle errors here
+      } finally {
+        // Set loading to false when fetching is completed (either success or error)
+        setLoading(false);
       }
     };
 
@@ -131,7 +136,7 @@ const RewardTable = () => {
         </div>
       </div>
       <div className={classes.tableContainer}>
-        <DataTable data={currentTableData} />
+        <DataTable data={currentTableData} loader={loading} />
       </div>
 
       <Pagination
